@@ -1,7 +1,11 @@
+// JS transcription of HS demo code
 
 function highestRank(xs) {
   // Determine which number appears the most
+  // store the result
   let result = {};
+
+  // Helper function to determine max
   let max = (obj) => Object.keys(obj).reduce((m, k) => obj[k] > m ? obj[k] : m , -Infinity);
 
   xs.forEach((arg) => result.hasOwnProperty(arg) ? result[arg]+=1 : result[arg] = 1);

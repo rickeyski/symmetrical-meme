@@ -1,3 +1,5 @@
+// Tail rec does't have to call the same function
+// you can recur as far as your mind will bend
 function isodd(n) {
   return n === 0 ? false : iseven(n - 1);
 }

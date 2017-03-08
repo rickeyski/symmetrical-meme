@@ -1,3 +1,8 @@
+// Issues with recursion
+// 1024 stack frames usual default
+// runs out quickly especially in broswer
+// Fix is tail call optimization
+
 function done(result) {
   return {
     isDone: true,

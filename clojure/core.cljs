@@ -60,6 +60,7 @@
     (str last ", " first (middle-name contact)))
 
 
+;; Views are om components, eg react components
 (defn professor-view [professor owner]
   (reify
     om/IRender
@@ -121,6 +122,7 @@
     (om/set-state! owner :editing false))
 
 
+;; hard coded state to initialize
 (def app-state
   (atom
     {:people
