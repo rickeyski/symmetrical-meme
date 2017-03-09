@@ -6,9 +6,15 @@ function highestRank(xs) {
   let result = {};
 
   // Helper function to determine max
-  let max = (obj) => Object.keys(obj).reduce((m, k) => obj[k] > m ? obj[k] : m , -Infinity);
+  // (args) => {}
+  let max = (obj) => Object.keys(obj).reduce(
+                          (m, k) => obj[k] > obj[m] ? k : m , -Infinity);
 
-  xs.forEach((arg) => result.hasOwnProperty(arg) ? result[arg]+=1 : result[arg] = 1);
+  xs.forEach((arg) => result.hasOwnProperty(arg) ?
+                          result[arg]+=1 : result[arg] = 1);
+
+  result[-Infinity] = -Infinity;
+
   return max(result);
 }
 

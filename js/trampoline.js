@@ -22,6 +22,18 @@ function trampoline(bounce) {
   return bounce.result;
 }
 
+
+function factorial(n) {
+  function loop(a, i) {
+    return i === 0 ? done(a) :
+      cont(() => loop(a * i, i - 1));
+  }
+  return trampoline(loop(1, n));
+}
+
+console.log(factorial(10));
+
+
 function dict_add(d, tup) {
   function sub(node, t) {
     if (t.length === 1) {
@@ -38,18 +50,9 @@ function dict_add(d, tup) {
   return trampoline(sub(d, tup));
 }
 
-function factorial(n) {
-  function loop(a, i) {
-    return i === 0 ? done(a) : cont(() => loop(a * i, i - 1));
-  }
-  return trampoline(loop(1, n));
-}
-
-console.log(factorial(10));
 
 let d = {},
     a = ['a', 'b', 'c'];
-
 
 dict_add(d, a.slice());
 dict_add(d, a.slice());
